@@ -27,4 +27,13 @@ export const ThresholdsController = {
       res.status(400).json({ error: error.message });
     }
   },
+
+  async deleteAll(req, res) {
+    try {
+      await ThresholdsModel.deleteAll();
+      res.status(204).send(); // 204 No Content, menandakan sukses tanpa balasan
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
 };

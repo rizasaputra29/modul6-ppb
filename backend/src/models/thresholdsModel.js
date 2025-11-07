@@ -55,4 +55,14 @@ export const ThresholdsModel = {
     if (error) throw error;
     return normalize(data);
   },
+
+  async deleteAll() {
+    const { error } = await supabase
+      .from(TABLE)
+      .delete()
+      .gte("created_at", "1970-01-01T00:00:00Z"); // Filter untuk menghapus semua baris
+
+    if (error) throw error;
+    return true;
+  },
 };

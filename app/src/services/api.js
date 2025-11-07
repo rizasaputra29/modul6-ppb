@@ -34,4 +34,9 @@ export const Api = {
       body: JSON.stringify(payload),
     });
   },
+  deleteThresholds() {
+    return request("/api/thresholds", {
+      method: "DELETE",
+    });
+  },
 };
