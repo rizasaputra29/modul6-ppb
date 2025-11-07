@@ -2,7 +2,7 @@ import mqtt from "mqtt";
 
 const BROKER_URL = "mqtt://broker.hivemq.com:1883";
 const TOPIC = "ppb/kel04/iot/temperature";
-const BACKEND_BASE_URL = "http://localhost:5000";
+const BACKEND_BASE_URL = "http://10.131.14.218:5050";
 const PUBLISH_INTERVAL_MS = 5000;
 
 const clientId = `simulator-${Math.random().toString(16).slice(2)}`;

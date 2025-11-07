@@ -10,4 +10,7 @@ if (!supabaseUrl || !supabaseServiceRoleKey) {
   throw new Error("Supabase environment variables are not set.");
 }
 
-export const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
+// ✅ Service role client (no session, full access)
+export const supabase = createClient(supabaseUrl, supabaseServiceRoleKey, {
+  auth: { persistSession: false },
+});
