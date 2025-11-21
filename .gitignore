@@ -1,0 +1,49 @@
+# Dependencies (ignores node_modules in all folders)
+node_modules/
+
+# Lock files (as requested)
+package-lock.json
+yarn.lock
+
+# Environment Variables (protect secrets)
+.env
+.env*.local
+
+# System Files
+.DS_Store
+Thumbs.db
+*.pem
+
+# Logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# IDE & Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build Outputs & Expo (Generalized)
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+*.tsbuildinfo
+
+# Metro
+.metro-health-check*
+
+# Native Generated Folders (ignore generated ios/android folders)
+ios/
+android/
+
+# Mobile Credentials
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
