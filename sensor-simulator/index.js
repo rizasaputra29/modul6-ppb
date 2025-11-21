@@ -1,8 +1,8 @@
 import mqtt from "mqtt";
 
-const BROKER_URL = "mqtt://broker.hivemq.com:1883";
+const BROKER_URL = "mqtt://broker.emqx.io:1883";
 const TOPIC = "ppb/kel04/iot/temperature";
-const BACKEND_BASE_URL = "http://10.131.14.218:5050";
+const BACKEND_BASE_URL = "http://172.20.10.5:5050"; // Ganti dengan URL backend Anda atau ganti dengan localhost untuk dev (jangan lupa ganti app/app.json)
 const PUBLISH_INTERVAL_MS = 5000;
 
 const clientId = `simulator-${Math.random().toString(16).slice(2)}`;

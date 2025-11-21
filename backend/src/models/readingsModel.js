@@ -13,15 +13,26 @@ function normalize(row) {
 }
 
 export const ReadingsModel = {
-  async list() {
-    const { data, error } = await supabase
+  // Update: Support pagination (page & limit)
+  async list(page = 1, limit = 10) {
+    const from = (page - 1) * limit;
+    const to = from + limit - 1;
+
+    // Mengambil data + total count
+    const { data, error, count } = await supabase
       .from(TABLE)
-      .select("id, temperature, threshold_value, recorded_at")
+      .select("id, temperature, threshold_value, recorded_at", { count: "exact" })
       .order("recorded_at", { ascending: false })
-      .limit(100);
+      .range(from, to);
 
     if (error) throw error;
-    return data.map(normalize);
+
+    return {
+      data: data.map(normalize),
+      total: count,
+      page,
+      limit
+    };
   },
 
   async latest() {

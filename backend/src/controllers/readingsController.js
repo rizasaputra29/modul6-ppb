@@ -3,8 +3,12 @@ import { ReadingsModel } from "../models/readingsModel.js";
 export const ReadingsController = {
   async list(req, res) {
     try {
-      const data = await ReadingsModel.list();
-      res.json(data);
+      // Ambil parameter page & limit dari query URL
+      const page = parseInt(req.query.page) || 1;
+      const limit = parseInt(req.query.limit) || 10;
+      
+      const result = await ReadingsModel.list(page, limit);
+      res.json(result);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
